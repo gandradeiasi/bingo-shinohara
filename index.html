@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bingo Shinohara</title>
-
+    <style>
+        @font-face {
+            font-family: 'luckiestguy';
+            src: url('./luckiestguy.ttf');
+        }
+    </style>
 </head>
 
 <body>
@@ -14,9 +19,10 @@
     <button onclick="gerar()">Gerar</button>
     <canvas width="500" height="600"></canvas>
     <div style="display: none;">
-        <img src="https://cf.shopee.com.br/file/3f183bbfde20e4247416ec41b2e7d71f">
+        <img src="./shino-logo.jpeg">
     </div>
 
+    <div style="font-family: luckiestguy; font-size: 0;">.</div>
 
     <script>
         const canvas = document.querySelector('canvas');
@@ -56,15 +62,16 @@
             }
 
             //Preenche os textos
-            canvas_context.textAlign = "left";
+            canvas_context.textAlign = "center";
             const bingo_text = 'BINGO';
             canvas_context.fillStyle = "white";
-            canvas_context.font = "900 80px monospace";
+            canvas_context.font = "80px luckiestguy";
             for (let i = 0; i < bingo_text.length; i++) {
-                canvas_context.fillText(bingo_text[i], padding_lateral + 22 + i * tamanho_quadrado, padding_top - 25);
+                canvas_context.fillText(bingo_text[i], padding_lateral + 46 + i * tamanho_quadrado, padding_top - 20);
             }
 
             console.log(padding_lateral);
+            canvas_context.textAlign = "left";
             canvas_context.font = "bold 24px Arial";
             const código = document.querySelector('input').value || "";
             canvas_context.fillText('Código: ' + document.querySelector('input').value, padding_lateral, padding_top + tamanho_miolo + 32);
